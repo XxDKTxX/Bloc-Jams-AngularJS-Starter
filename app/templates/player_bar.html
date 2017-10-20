@@ -5,7 +5,8 @@
                  <span class="ion-skip-backward"></span>
              </a>
              <a class="play-pause">
-                 <span class="ion-play"></span>
+                 <span class="ion-play" ng-mouseover="hovered" ng-mouseleft="!hovered" ng-hide="playing"></span>
+                 <span class="ion-pause" ng-mouseover="hovered" ng-mouseleft="!hovered" ng-show="playing" ng-show="playing && hovered"></span>
              </a>
              <a class="next">
                  <span class="ion-skip-forward"></span>
