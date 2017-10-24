@@ -47,7 +47,7 @@ for (var i = 0; i < numberOfAlbums; i++) {
 };
 
 return Fixtures;
-}
+};
     angular
         .module('blocJams')
         .factory('Fixtures', Fixtures);
