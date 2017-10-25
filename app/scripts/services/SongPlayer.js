@@ -46,10 +46,11 @@
           song.playing = false;
          };
 
-         function playSong() {
+         function playSong(){
 
            currentBuzzObject.play();
            song.playing = true;
+           this.refresh();
 
          };
 
