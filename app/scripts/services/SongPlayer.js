@@ -46,15 +46,6 @@
           song.playing = false;
          };
 
-         function playSong(){
-
-           currentBuzzObject.play();
-           song.playing = true;
-           this.refresh();
-
-         };
-
-
           return SongPlayer;
      };
 
