@@ -30,16 +30,17 @@
           };
 
           SongPlayer.play = function(song) {
+            alert(song);
               if (currentSong !== song) {
                 setSong(song);
-                currentBuzzObject.play();
-                song.playing = true;
+               currentBuzzObject.play();
+               song.playing = true;
             } else if (currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     currentBuzzObject.play();
-                }
-            }
-        };
+               }
+           }
+      };
 
           SongPlayer.pause = function(song) {
           currentBuzzObject.pause();
@@ -52,5 +53,5 @@
 
      angular
          .module('blocJams')
-         .factory('SongPlayer', SongPlayer);
+         .factory('SongPlayer', ['Fixtures', SongPlayer]);
  })();
