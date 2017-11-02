@@ -8,7 +8,18 @@
           return currentAlbum.songs.indexOf(song);
          };
 
-
+        var songFlow = function () {
+          var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+          currentSongIndex++;
+          if (currentSongIndex > currentAlbum.songs.length) {
+          currentBuzzObject.stop();
+          SongPlayer.currentSong.playing = null;
+        } else {
+          var song = currentAlbum.songs[currentSongIndex];
+          setSong(song);
+          playSong(song);
+       }
+      };
           /**
           * @desc Buzz object audio file
           * @type {Object}
@@ -27,7 +38,7 @@
           var playSong = function (song) {
           currentBuzzObject.play();
           song.playing = true;
-          }
+      };
 
           var pauseSong = function (song) {
             currentBuzzObject.pause();
@@ -53,6 +64,7 @@
              currentBuzzObject.bind('timeupdate', function() {
               $rootScope.$apply(function() {
                SongPlayer.currentTime = currentBuzzObject.getTime();
+               //ask mentor.
          });
       });
 
@@ -67,6 +79,9 @@
                setSong(song);
                currentBuzzObject.play();
                song.playing = true;
+               if (SongPlayer.currentTime >= SongPlayer.currentSong.duration){
+                 songFlow();
+               }
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     currentBuzzObject.play();
