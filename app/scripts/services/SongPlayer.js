@@ -123,7 +123,7 @@
            }
          }
 
-      
+
 
          SongPlayer.setVolume = function(volume) {
           if (currentBuzzObject) {
