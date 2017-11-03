@@ -68,6 +68,10 @@
          });
       });
 
+              currentBuzzObject.bind('ended', function() {
+                songFlow();
+              });
+
              SongPlayer.currentSong = song;
           };
 
@@ -79,9 +83,6 @@
                setSong(song);
                currentBuzzObject.play();
                song.playing = true;
-               if (SongPlayer.currentTime >= SongPlayer.currentSong.duration){
-                 songFlow();
-               }
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     currentBuzzObject.play();
